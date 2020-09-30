@@ -1,6 +1,5 @@
 body {
     color: black;
-    background-color: #c6c6c690;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin: 0;
@@ -17,74 +16,15 @@ img {
 
 nav {
     display: inline;
-    margin: 1
 }
 
-a {
+.link {
     display: inline-block;
-    margin: 10 px;
-    padding-block: 10px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
 }
 
-footer {
-    height: 290px;
-    width: auto;
-    padding: 70px;
-    color: rgba(255, 255, 255, .78);
-    background-color: #171717;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 73%;
-    font-weight: 200;
-    font-style: normal;
-    letter-spacing: .4px;
-    line-height: 32px;
-}
-
-.footer-inner {
-    display: flex;
-    flex-wrap: wrap;
-    width: 1260px;
-    position: relative;
-    margin: 0 auto;
-}
-
-.first-element {
-    /* display: inline-block; */
-    height: 290px;
-    width: 385px;
-}
-
-.second-element {
-    /* display: inline-block; */
-    height: 290px;
-    width: 160px;
-    margin-left: 135px;
-}
-
-.third-element {
-    /* display: inline-block; */
-    height: 290px;
-    width: 160px;
-    margin-left: 110px;
-}
-
-.footer-element-title {
-    height: 20px;
-    margin-bottom: 45px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 17px;
-    line-height: 1.4em;
-    letter-spacing: .05em;
-    text-transform: none;
-}
-
-.footer-link {
-    color: rgba(255, 255, 255, .78);
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    text-decoration: underline;
+#glavni {
+    background-color: green;
 }
