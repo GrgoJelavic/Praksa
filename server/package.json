@@ -1,0 +1,35 @@
+{
+    "name": "praksa-api",
+    "version": "1.0.0",
+    "description": "NodeJS REST API",
+    "main": "src/server.js",
+    "scripts": {
+        "test": "Node, EXPRESS, API, REST",
+        "start": "nodemon src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GrgoJelavic/Praksa.git"
+    },
+    "keywords": [
+        "Node",
+        "Express",
+        "API",
+        "REST"
+    ],
+    "author": "grgojelavic",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GrgoJelavic/Praksa/issues"
+    },
+    "homepage": "https://github.com/GrgoJelavic/Praksa#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "helmet": "^4.1.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
