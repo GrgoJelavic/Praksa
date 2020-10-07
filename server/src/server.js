@@ -1,9 +1,18 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const helmet = require("helmet");
-const cors = require("cors");
-const studentsRouter = require("./routes/students.router");
-const { PORT } = require("./configs/environment.config");
+// const express = require("express");
+// const bodyParser = require("body-parser");
+// const helmet = require("helmet");
+// const cors = require("cors");
+
+import express from "express";
+import bodyParser from "body-parser";
+import helmet from "helmet";
+import cors from "cors";
+
+// const studentsRouter = require("./routes/students.router");
+// const { PORT } = require("./configs/environment.config");
+
+import studentsRouter from "./routes/students.router";
+import { PORT } from "./configs/environment.config";
 
 const app = express();
 

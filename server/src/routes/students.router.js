@@ -1,5 +1,9 @@
-const express = require("express");
-const studentsRouter = express.Router();
+// const express = require("express");
+// const studentsRouter = express.Router();
+
+import { Router } from "express";
+import { getAllStudents } from "../controllers/students.controller";
+const studentsRouter = Router();
 
 let students = [
     { id: 0, name: "Matea", gender: "female", age: 21 },
@@ -7,13 +11,7 @@ let students = [
     { id: 2, name: "Ivan", gender: "male", age: 30 }
 ];
 
-studentsRouter.get("/", (req, res, next) => {
-    /* if (true) {
-      return res.status(500).json("Internal Server Error");
-    } */
-
-    res.status(200).json(students);
-});
+studentsRouter.get("/", getAllStudents);
 
 studentsRouter.get("/:id", (req, res, next) => {
     const studentId = Number(req.params.id);
@@ -38,4 +36,6 @@ studentsRouter.delete("/:id", (req, res, next) => {
     res.status(200).json(students);
 });
 
-module.exports = studentsRouter;
+//module.exports = studentsRouter;
+
+export default studentsRouter;

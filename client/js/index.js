@@ -1,4 +1,5 @@
 import http from "./http.service.js";
+import { createElement } from "./helper.utils.js";
 
 function onSidebarToggle() {
     const sidebarRef = document.querySelector("#sidebar-container");
@@ -19,13 +20,6 @@ function onDuplicateBox(id) {
     document.getElementById("box-container").append(newBox);
 }
 
-function onSubmit(event) {
-    event.preventDefault(); // Izbjeći automatsko refreshanje stranice
-
-    const emailValue = document.getElementById("mail").value;
-    console.log(emailValue);
-}
-
 const boxes = document.querySelectorAll(".box"); // boxes je lista html elemenata
 
 boxes.forEach(box => box.addEventListener("click", onBoxClick));
@@ -38,22 +32,46 @@ function setId(event) {
     requestId = event.target.value;
 }
 
+function setList(students) {
+    const listRef = document.getElementById("student-list");
+
+    listRef.innerHTML = "";
+
+    students.forEach(student => {
+        listRef.append(createElement(student));
+    });
+}
+
 async function onGetStudents() {
-    console.log(await http.getStudents());
+    const students = await http.getStudents();
+
+    setList(students);
 }
 
 async function onGetStudent() {
-    console.log(await http.getStudent(requestId));
-}
+    const student = await http.getStudent(requestId);
 
-async function onPostStudent() {
-    const data = { name: "John", gender: "male", age: 100 };
-
-    console.log(await http.postStudent(data));
+    setList([student]);
 }
 
 async function onDeleteStudent() {
-    console.log(await http.deleteStudent(requestId));
+    const students = await http.deleteStudent(requestId);
+
+    setList(students);
+}
+
+async function onSubmit(event) {
+    event.preventDefault(); // Izbjeći automatsko refreshanje stranice
+
+    const { name, age, gender } = event.target.elements;
+    const data = {
+        name: name.value || "John",
+        age: age.value || 100,
+        gender: gender.value
+    };
+    const students = await http.postStudent(data);
+
+    setList(students);
 }
 
 document.getElementById("id-input").addEventListener("change", setId);
@@ -62,8 +80,6 @@ document
     .addEventListener("click", onGetStudents);
 document.getElementById("get-student").addEventListener("click", onGetStudent);
 document
-    .getElementById("post-student")
-    .addEventListener("click", onPostStudent);
-document
     .getElementById("delete-student")
     .addEventListener("click", onDeleteStudent);
+document.getElementById("form").addEventListener("submit", onSubmit);
